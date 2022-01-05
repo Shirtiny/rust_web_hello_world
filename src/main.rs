@@ -1,7 +1,7 @@
 /*
  * @Author: Shirtiny
  * @Date: 2022-01-05 10:06:31
- * @LastEditTime: 2022-01-05 11:12:16
+ * @LastEditTime: 2022-01-05 16:18:47
  * @Description:
  */
 use yew::prelude::*;
@@ -53,12 +53,10 @@ impl Component for Model {
 #[function_component(App)]
 fn app() -> Html {
     let count = use_state(|| 0);
-    
     let handle_click = {
         let counter = count.clone();
         Callback::from(move |_| counter.set(*counter + 1))
     };
-    
     html! {
         <div>
             { "hello world, " }
