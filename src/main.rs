@@ -1,21 +1,21 @@
 /*
  * @Author: Shirtiny
  * @Date: 2022-01-05 10:06:31
- * @LastEditTime: 2022-01-06 11:05:59
+ * @LastEditTime: 2022-01-18 14:18:55
  * @Description:
  */
 use std::io;
 
-fn read_input() {
+fn _read_input() -> String {
     let mut input = String::new();
     println!("input something");
-    match io ::stdin().read_line(&mut input) {
+    match io::stdin().read_line(&mut input) {
         Ok(_) => {
             println!("hello, {}", input)
         }
         _ => {}
     }
-    
+    return input;
 }
 
 fn _prints() {
@@ -29,8 +29,36 @@ fn _prints() {
     );
 }
 
+fn _add(a: i32, b: i32) -> i32 {
+    a + b
+}
+
+fn _run_fn() {
+    println!("{}", _add(1, 2));
+    let sum = |a: i32, b: i32| -> i32 { a + b };
+    println!("{}", sum(3, 4));
+}
+
+#[derive(Debug)]
+enum Position {
+    Left,
+    Right,
+}
+
+fn _run_enum() {
+    println!("{:?}", Position::Right);
+    let pos = Position::Left;
+    match pos {
+        Position::Left => {
+            println!("{:?}", Position::Left);
+        }
+        Position::Right => {}
+    }
+}
+
 fn main() {
-    read_input();
-    // prints()
-  
+    // _read_input();
+    // _prints()
+    // _run_fn()
+    _run_enum()
 }
